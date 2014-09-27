@@ -38,7 +38,7 @@ public class WechatServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        if (pass && remoteSig != null && remoteSig.isEmpty()) {
+        if (pass && remoteSig != null && !remoteSig.isEmpty()) {
             PrintWriter out = resp.getWriter();
             out.print(echostr);
             out.close();

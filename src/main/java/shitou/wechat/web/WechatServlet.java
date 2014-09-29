@@ -1,5 +1,6 @@
 package shitou.wechat.web;
 
+import org.apache.commons.lang.StringUtils;
 import shitou.wechat.weixin.util.WechatSignatureChecker;
 
 import javax.servlet.ServletException;
@@ -30,19 +31,20 @@ public class WechatServlet extends HttpServlet {
         String nonce = req.getParameter("nonce");
         String echostr = req.getParameter("echostr");
 
-        WechatSignatureChecker checker = new WechatSignatureChecker();
-        boolean pass = true;
+        boolean pass = false;
         try {
-            pass = checker.check(timestamp, nonce, remoteSig);
+            pass = WechatSignatureChecker.check(timestamp, nonce, remoteSig);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
 
-        if (pass && remoteSig != null && !remoteSig.isEmpty()) {
+        if (pass && echostr != null && !remoteSig.isEmpty()) {
             PrintWriter out = resp.getWriter();
             out.print(echostr);
             out.close();
+            return;
         }
 
+        if (StringUtils.isBlank(remoteSig) || StringUtils.isBlank(timestamp) || StringUtils.isBlank(echostr)) return;
     }
 }

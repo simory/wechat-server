@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Created by shitou on 14-9-28.
  */
 public class WechatSignatureChecker {
-    public boolean check(String timestamp, String nonce, String remoteSignature) throws NoSuchAlgorithmException {
+    public static boolean check(String timestamp, String nonce, String remoteSignature) throws NoSuchAlgorithmException {
         if (StringUtils.isBlank(timestamp) || StringUtils.isBlank(nonce) || StringUtils.isBlank(remoteSignature))
             return false;
 
@@ -29,7 +29,7 @@ public class WechatSignatureChecker {
         return false;
     }
 
-    private String Encrypt(String originString) throws NoSuchAlgorithmException {
+    private static String Encrypt(String originString) throws NoSuchAlgorithmException {
         MessageDigest md = null;
         String re = null;
         byte[] bt = originString.getBytes();

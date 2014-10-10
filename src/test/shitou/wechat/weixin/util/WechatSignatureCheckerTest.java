@@ -15,4 +15,10 @@ public class WechatSignatureCheckerTest extends TestCase {
         boolean result = checker.check("9983762","sodniwyjo","e4002e9200744df0ddb649f239daa6cbba0424f6");
         assertEquals(true, result);
     }
+
+    public void testCheckWithIncorrectSignature() throws Exception{
+        WechatSignatureChecker checker = new WechatSignatureChecker();
+        boolean result = checker.check("9983762","sodniwyjo","incorrectSignature");
+        assertEquals(false, result);
+    }
 }

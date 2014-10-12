@@ -1,6 +1,8 @@
 package shitou.wechat.web;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import shitou.wechat.weixin.util.WechatSignatureChecker;
 
 import javax.servlet.ServletException;
@@ -17,6 +19,7 @@ import java.security.NoSuchAlgorithmException;
  * @Author shitou
  * On 2014/8/14 23:40
  */
+@Component
 public class WechatServlet extends HttpServlet {
 
     @Override
@@ -31,6 +34,8 @@ public class WechatServlet extends HttpServlet {
         String nonce = req.getParameter("nonce");
         String echostr = req.getParameter("echostr");
 
+        if (StringUtils.isBlank(remoteSig) || StringUtils.isBlank(timestamp) || StringUtils.isBlank(nonce)) return;
+
         boolean pass = false;
         try {
             pass = WechatSignatureChecker.check(timestamp, nonce, remoteSig);
@@ -38,13 +43,13 @@ public class WechatServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        if (pass && echostr != null && !remoteSig.isEmpty()) {
-            PrintWriter out = resp.getWriter();
-            out.print(echostr);
-            out.close();
-            return;
+        if (pass) {
+            if (StringUtils.isNotEmpty(echostr)) {
+                PrintWriter out = resp.getWriter();
+                out.print(echostr);
+                out.close();
+                return;
+            }
         }
-
-        if (StringUtils.isBlank(remoteSig) || StringUtils.isBlank(timestamp) || StringUtils.isBlank(echostr)) return;
     }
 }

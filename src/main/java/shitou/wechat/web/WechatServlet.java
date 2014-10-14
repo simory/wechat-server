@@ -15,7 +15,6 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * Created in Intellij IDEA 13 Ultimate
- *
  * @Author shitou
  * On 2014/8/14 23:40
  */
@@ -50,6 +49,8 @@ public class WechatServlet extends HttpServlet {
                 out.close();
                 return;
             }
+
+
         }
     }
 }

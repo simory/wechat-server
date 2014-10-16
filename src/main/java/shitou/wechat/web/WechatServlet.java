@@ -1,7 +1,6 @@
 package shitou.wechat.web;
 
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import shitou.wechat.weixin.util.WechatSignatureChecker;
 
@@ -9,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.NoSuchAlgorithmException;
@@ -46,11 +46,21 @@ public class WechatServlet extends HttpServlet {
             if (StringUtils.isNotEmpty(echostr)) {
                 PrintWriter out = resp.getWriter();
                 out.print(echostr);
-                out.close();
+                closeIO(out);
                 return;
             }
 
-
+            BufferedReader reader = req.getReader();
+            String xml = "";
+            String s = null;
+            while ((s = reader.readLine()) != null){
+                xml += s;
+            }
         }
+    }
+
+    private void closeIO(PrintWriter out){
+        out.flush();
+        out.close();
     }
 }

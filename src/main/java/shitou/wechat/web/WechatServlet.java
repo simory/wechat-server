@@ -2,6 +2,7 @@ package shitou.wechat.web;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
+import shitou.wechat.weixin.order.MessageHandler;
 import shitou.wechat.weixin.util.WechatSignatureChecker;
 
 import javax.servlet.ServletException;
@@ -56,6 +57,12 @@ public class WechatServlet extends HttpServlet {
             while ((s = reader.readLine()) != null){
                 xml += s;
             }
+
+            PrintWriter out = resp.getWriter();
+            MessageHandler handler = new MessageHandler();
+            String messageReturn = handler.handle(xml);
+            out.write(messageReturn);
+            closeIO(out);
         }
     }
 

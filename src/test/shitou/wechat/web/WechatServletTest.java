@@ -45,27 +45,6 @@ public class WechatServletTest extends TestCase {
     }
 
     @Test
-    public void testDoGetWithEmptyEchostr() throws Exception {
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter out = new PrintWriter(stringWriter);
-
-        HttpServletRequest request = mock(HttpServletRequest.class);
-        when(request.getParameter("signature")).thenReturn("17ced6ad93223187a771e1ba072dd118bfb6035b");
-        when(request.getParameter("timestamp")).thenReturn("201410121828");
-        when(request.getParameter("nonce")).thenReturn("88927654927");
-        when(request.getParameter("echostr")).thenReturn("");
-
-        HttpServletResponse response = mock(HttpServletResponse.class);
-        when(response.getWriter()).thenReturn(out);
-
-        entrance.doGet(request, response);
-
-        String res = stringWriter.toString();
-        assertNotNull(res);
-        assertEquals(0, res.length());
-    }
-
-    @Test
     public void testDoGetWithEmptyTimestamp() throws Exception {
         StringWriter stringWriter = new StringWriter();
         PrintWriter out = new PrintWriter(stringWriter);

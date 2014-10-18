@@ -13,7 +13,7 @@ import shitou.wechat.weixin.Constant;
  * Time: 22:49
  */
 @Component
-public class TextMessageHandler implements MessageHandler{
+public class TextMessageHandler implements MessageHandler {
 
     @Override
     public String handle(String xml) throws DocumentException {
@@ -21,6 +21,16 @@ public class TextMessageHandler implements MessageHandler{
 
         TextMessageModel textMessageModel = new TextMessageModel();
         textMessageModel = textMessageModel.buildFromXml(xml);
-        return textMessageModel.toResponsesXml(textMessageModel.getContent());
+
+        StringBuffer sb = new StringBuffer();
+        sb.append("Message Info:\n");
+        sb.append("FromUser: [" + textMessageModel.getFromUserName() + "]\n");
+        sb.append("ToUser: [" + textMessageModel.getToUserName() + "]\n");
+        sb.append("CreateTime: [" + textMessageModel.getCreateTime() + "]\n");
+        sb.append("MsgType: [" + "text]\n");
+        sb.append("Content: [" + textMessageModel.getContent() + "\n");
+        sb.append("MsgId: [" + textMessageModel.getMessageID() + "]\n");
+
+        return textMessageModel.toResponsesXml(sb.toString());
     }
 }

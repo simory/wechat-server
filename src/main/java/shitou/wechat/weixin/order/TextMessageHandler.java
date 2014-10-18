@@ -28,7 +28,7 @@ public class TextMessageHandler implements MessageHandler {
         sb.append("ToUser: [" + textMessageModel.getToUserName() + "]\n");
         sb.append("CreateTime: [" + textMessageModel.getCreateTime() + "]\n");
         sb.append("MsgType: [" + "text]\n");
-        sb.append("Content: [" + textMessageModel.getContent() + "\n");
+        sb.append("Content: [" + textMessageModel.getContent() + "]\n");
         sb.append("MsgId: [" + textMessageModel.getMessageID() + "]\n");
 
         return textMessageModel.toResponsesXml(sb.toString());

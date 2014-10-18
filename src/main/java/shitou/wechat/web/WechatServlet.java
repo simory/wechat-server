@@ -63,9 +63,7 @@ public class WechatServlet extends HttpServlet {
             resp.setContentType("text/xml");
             PrintWriter out = resp.getWriter();
             MessageFilter handler = new MessageFilter();
-            String messageReturn = null;
-            messageReturn = handler.handle(xml);
-            out.write(messageReturn);
+            out.write(handler.handle(xml));
             closeIO(out);
         } catch (Exception e) {
             e.printStackTrace();

@@ -18,13 +18,10 @@ import shitou.wechat.weixin.util.MessageTypePicker;
 @Component
 public class MessageFilter {
 
-    @Autowired
-    MessageTypePicker messageTypePicker;
-
     public String handle(String xml) throws DocumentException, IllegalAccessException, InstantiationException {
         if (xml == null || xml.trim().isEmpty()) return Constant.NULL_STRING;
 
-        String messageType = messageTypePicker.pick(xml);
+        String messageType = MessageTypePicker.pick(xml);
         Class<MessageHandler> specificHandlerClass = HandlerMap.map.get(messageType);
 
         if (specificHandlerClass == null) return Constant.NULL_STRING;

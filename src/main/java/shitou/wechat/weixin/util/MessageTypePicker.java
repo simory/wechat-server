@@ -16,9 +16,8 @@ import java.util.List;
  * Date: 2014/10/17
  * Time: 00:12
  */
-@Component
 public class MessageTypePicker {
-    public String pick(String xml) throws DocumentException {
+    public static String pick(String xml) throws DocumentException {
         if (null == xml || xml.trim().isEmpty()) return MessageType.NULL_MESSAGE;
 
         SAXReader reader = new SAXReader();

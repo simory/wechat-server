@@ -12,7 +12,6 @@ import java.util.Arrays;
 /**
  * Created by shitou on 14-9-28.
  */
-@Component
 public class WechatSignatureChecker {
     public static boolean check(String timestamp, String nonce, String remoteSignature) throws NoSuchAlgorithmException {
         if (StringUtils.isBlank(timestamp) || StringUtils.isBlank(nonce) || StringUtils.isBlank(remoteSignature))

@@ -1,8 +1,9 @@
 package shitou.wechat.web;
 
 import org.apache.commons.lang.StringUtils;
+import org.dom4j.DocumentException;
 import org.springframework.stereotype.Component;
-import shitou.wechat.weixin.order.MessageHandler;
+import shitou.wechat.weixin.order.MessageFilter;
 import shitou.wechat.weixin.util.WechatSignatureChecker;
 
 import javax.servlet.ServletException;
@@ -58,11 +59,17 @@ public class WechatServlet extends HttpServlet {
                 xml += s;
             }
 
+        try {
+            resp.setContentType("text/xml");
             PrintWriter out = resp.getWriter();
-            MessageHandler handler = new MessageHandler();
-            String messageReturn = handler.handle(xml);
+            MessageFilter handler = new MessageFilter();
+            String messageReturn = null;
+            messageReturn = handler.handle(xml);
             out.write(messageReturn);
             closeIO(out);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         }
     }
 

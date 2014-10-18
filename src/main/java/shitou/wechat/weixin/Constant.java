@@ -11,4 +11,5 @@ public class Constant {
     public static final String CREATE_TIME = "CreateTime";
     public static final String CONTENT = "Content";
     public static final String MSG_ID = "MsgId";
+    public static final String NULL_STRING = "";
 }

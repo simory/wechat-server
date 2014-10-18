@@ -1,14 +1,16 @@
 package shitou.wechat.weixin.order;
 
+import org.dom4j.DocumentException;
+import org.springframework.stereotype.Component;
 
 /**
  * Created in Intellij IDEA 13 Ultimate
  * User: shitou
- * Date: 2014/10/17
- * Time: 00:07
+ * Date: 2014/10/18
+ * Time: 22:38
  */
-public class MessageHandler {
-    public String handle(String xml){
-        return null;
-    }
+@Component
+public interface MessageHandler {
+
+    public String handle(String xml) throws DocumentException;
 }

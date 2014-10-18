@@ -75,27 +75,40 @@ public class TextMessageModel {
         List<Element> list = root.elements();
 
         TextMessageModel textMessageModel = new TextMessageModel();
-        for (Element element : list){
-            if (Constant.TO_USER_NAME.equals(element.getName())){
+        for (Element element : list) {
+            if (Constant.TO_USER_NAME.equals(element.getName())) {
                 textMessageModel.setToUserName(element.getTextTrim());
             }
 
-            if (Constant.FROM_USER_NAME.equals(element.getName())){
+            if (Constant.FROM_USER_NAME.equals(element.getName())) {
                 textMessageModel.setFromUserName(element.getTextTrim());
             }
 
-            if (Constant.CREATE_TIME.equals(element.getName())){
+            if (Constant.CREATE_TIME.equals(element.getName())) {
                 textMessageModel.setCreateTime(new Date(Long.parseLong(element.getTextTrim())));
             }
 
-            if (Constant.CONTENT.equals(element.getName())){
+            if (Constant.CONTENT.equals(element.getName())) {
                 textMessageModel.setContent(element.getTextTrim());
             }
 
-            if (Constant.MSG_ID.equals(element.getName())){
+            if (Constant.MSG_ID.equals(element.getName())) {
                 textMessageModel.setMessageID(element.getTextTrim());
             }
         }
         return textMessageModel;
+    }
+
+    public String toResponsesXml(String responsesContent) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("<xml>\r\n");
+        sb.append("<ToUserName><![CDATA[" + fromUserName + "]]></ToUserName>\r\n");
+        sb.append("<FromUserName><![CDATA[" + toUserName + "]]></FromUserName>\r\n");
+        sb.append("<CreateTime>" + System.currentTimeMillis() + "</CreateTime>\r\n");
+        sb.append("<MsgType><![CDATA[text]]></MsgType>\r\n");
+        sb.append("<Content><![CDATA[" + responsesContent + "]]></Content>\r\n");
+        sb.append("</xml>");
+
+        return sb.toString();
     }
 }

@@ -1,6 +1,7 @@
 package shitou.wechat.core.model;
 
 import junit.framework.TestCase;
+import org.dom4j.DocumentException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,22 @@ public class TextMessageModelTest extends TestCase {
         textMessageModel = textMessageModel.buildFromXml(message);
 
         assertNull(textMessageModel);
+    }
+
+    @Test
+    public void testToResponsesXml() throws Exception {
+        textMessageModel.setFromUserName("user_fdkaucskfooshuf");
+        textMessageModel.setToUserName("me_iefhfe83r4eawfue");
+
+        String resultXml = textMessageModel.toResponsesXml("hello");
+
+        assertNotNull(resultXml);
+
+        TextMessageModel newModel = new TextMessageModel();
+        newModel = newModel.buildFromXml(resultXml);
+
+        assertEquals("me_iefhfe83r4eawfue", newModel.getFromUserName());
+        assertEquals("user_fdkaucskfooshuf", newModel.getToUserName());
+        assertEquals("hello", newModel.getContent());
     }
 }

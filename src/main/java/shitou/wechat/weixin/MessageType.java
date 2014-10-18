@@ -16,6 +16,6 @@ public class MessageType {
 
     public static final String TAG_NAME = "MsgType";
 
-    public static final String UNKONWN_MESSAGE = "unkonwn";
-    public static final String NULL_MESSAGE = "null";
+    public static final String UNKONWN_MESSAGE = "unkonwnMessage";
+    public static final String NULL_MESSAGE = "nullMessage";
 }

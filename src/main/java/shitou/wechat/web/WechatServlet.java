@@ -23,6 +23,9 @@ import java.security.NoSuchAlgorithmException;
 @Component
 public class WechatServlet extends HttpServlet {
 
+    @Autowired
+    private HandleFactory handleFactory;
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.doPost(req, resp);
@@ -62,8 +65,8 @@ public class WechatServlet extends HttpServlet {
         try {
             resp.setContentType("text/xml");
             PrintWriter out = resp.getWriter();
-            HandleFactory handleFactory = new HandleFactory();
-            out.write(handleFactory.handle(xml));
+            String messageReturn = handleFactory.handle(xml);
+            out.write(messageReturn);
             closeIO(out);
         } catch (Exception e) {
             e.printStackTrace();

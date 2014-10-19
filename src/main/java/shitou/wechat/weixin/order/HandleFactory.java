@@ -2,7 +2,6 @@ package shitou.wechat.weixin.order;
 
 
 import org.dom4j.DocumentException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import shitou.wechat.weixin.Constant;
 import shitou.wechat.weixin.util.HandlerMap;
@@ -16,7 +15,7 @@ import shitou.wechat.weixin.util.MessageTypePicker;
  */
 
 @Component
-public class MessageFilter {
+public class HandleFactory {
 
     public String handle(String xml) throws DocumentException, IllegalAccessException, InstantiationException {
         if (xml == null || xml.trim().isEmpty()) return Constant.NULL_STRING;

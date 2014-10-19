@@ -1,9 +1,9 @@
 package shitou.wechat.web;
 
 import org.apache.commons.lang.StringUtils;
-import org.dom4j.DocumentException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import shitou.wechat.weixin.order.MessageFilter;
+import shitou.wechat.weixin.order.HandleFactory;
 import shitou.wechat.weixin.util.WechatSignatureChecker;
 
 import javax.servlet.ServletException;
@@ -22,6 +22,9 @@ import java.security.NoSuchAlgorithmException;
  */
 @Component
 public class WechatServlet extends HttpServlet {
+
+    @Autowired
+    HandleFactory handleFactory;
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -62,8 +65,7 @@ public class WechatServlet extends HttpServlet {
         try {
             resp.setContentType("text/xml");
             PrintWriter out = resp.getWriter();
-            MessageFilter handler = new MessageFilter();
-            out.write(handler.handle(xml));
+            out.write(handleFactory.handle(xml));
             closeIO(out);
         } catch (Exception e) {
             e.printStackTrace();

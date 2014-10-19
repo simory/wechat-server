@@ -9,10 +9,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context.xml"})
-public class MessageFilterTest extends TestCase {
+public class HandleFactoryTest extends TestCase {
 
     @Autowired
-    MessageFilter handler;
+    HandleFactory handler;
 
     @Test
     public void testHandle() throws Exception {

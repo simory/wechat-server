@@ -1,4 +1,4 @@
-package shitou.wechat.weixin.order;
+package shitou.wechat.weixin.handle;
 
 import org.dom4j.DocumentException;
 import org.springframework.stereotype.Component;

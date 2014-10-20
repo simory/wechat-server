@@ -1,8 +1,7 @@
 package shitou.wechat.weixin.util;
 
-import shitou.wechat.core.model.TextMessageModel;
 import shitou.wechat.weixin.MessageType;
-import shitou.wechat.weixin.order.TextMessageHandler;
+import shitou.wechat.weixin.handle.TextMessageHandler;
 
 import java.util.HashMap;
 import java.util.Map;

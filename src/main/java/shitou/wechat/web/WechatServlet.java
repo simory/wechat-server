@@ -1,9 +1,8 @@
 package shitou.wechat.web;
 
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import shitou.wechat.weixin.order.HandleFactory;
+import shitou.wechat.weixin.handle.HandleFactory;
 import shitou.wechat.weixin.util.WechatSignatureChecker;
 
 import javax.servlet.ServletException;

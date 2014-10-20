@@ -1,4 +1,4 @@
-package shitou.wechat.weixin.order;
+package shitou.wechat.weixin.handle;
 
 import junit.framework.TestCase;
 import org.junit.Test;

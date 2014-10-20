@@ -6,6 +6,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.springframework.stereotype.Component;
 import shitou.wechat.weixin.Constant;
+import shitou.wechat.weixin.util.WechatUtils;
 
 import java.io.StringReader;
 import java.sql.Date;
@@ -22,7 +23,7 @@ public class TextMessageModel {
 
     private String toUserName;
     private String fromUserName;
-    private Date createTime;
+    private String createTime;
     private String content;
     private String messageID;
 
@@ -42,11 +43,11 @@ public class TextMessageModel {
         this.fromUserName = fromUserName;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -85,7 +86,7 @@ public class TextMessageModel {
             }
 
             if (Constant.CREATE_TIME.equals(element.getName())) {
-                textMessageModel.setCreateTime(new Date(Long.parseLong(element.getTextTrim())));
+                textMessageModel.setCreateTime(WechatUtils.formatTime(element.getTextTrim()));
             }
 
             if (Constant.CONTENT.equals(element.getName())) {

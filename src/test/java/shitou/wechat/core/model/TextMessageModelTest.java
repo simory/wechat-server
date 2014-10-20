@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import shitou.wechat.weixin.util.WechatUtils;
 
 import java.sql.Date;
 
@@ -25,7 +26,7 @@ public class TextMessageModelTest extends TestCase {
         assertNotNull(textMessageModel);
         assertEquals("toUser", textMessageModel.getToUserName());
         assertEquals("fromUser", textMessageModel.getFromUserName());
-        assertEquals(new Date(Long.parseLong("1348831860")), textMessageModel.getCreateTime());
+        assertEquals(WechatUtils.formatTime("1348831860"), textMessageModel.getCreateTime());
         assertEquals("this is a test", textMessageModel.getContent());
         assertEquals("1234567890123456", textMessageModel.getMessageID());
     }

@@ -20,6 +20,7 @@ public class TextMessageHandler implements MessageHandler {
 
         TextMessageModel textMessageModel = new TextMessageModel();
         textMessageModel = textMessageModel.buildFromXml(xml);
+        System.out.println(textMessageModel.getCreateTime());
 
         StringBuffer sb = new StringBuffer();
         sb.append("Message Info:\n");

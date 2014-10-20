@@ -22,4 +22,13 @@ public class HandleFactoryTest extends TestCase {
         assertNotNull(handleResult);
         assertTrue(handleResult.trim().length() > 0);
     }
+
+    @Test
+    public void testHandleWithInvalidMessage() throws Exception {
+        String xml = "<xml><ToUserName><![CDATA[toUser]]></ToUserName><FromUserName><![CDATA[fromUser]]></FromUserName><CreateTime>1348831860</CreateTime><MsgType><![CDATA[invalid]]></MsgType><Content><![CDATA[this is a test]]></Content><MsgId>1234567890123456</MsgId></xml>";
+        String handleResult = handler.handle(xml);
+
+        assertNotNull(handleResult);
+        assertTrue(handleResult.trim().length() == 0);
+    }
 }

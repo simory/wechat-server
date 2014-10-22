@@ -12,4 +12,6 @@ public class Constant {
     public static final String CONTENT = "Content";
     public static final String MSG_ID = "MsgId";
     public static final String NULL_STRING = "";
+
+    public static final String EVENT = "Event";
 }

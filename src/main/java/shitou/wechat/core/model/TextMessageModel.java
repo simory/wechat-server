@@ -1,16 +1,17 @@
 package shitou.wechat.core.model;
 
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
 import org.dom4j.Element;
+import org.dom4j.Document;
 import org.dom4j.io.SAXReader;
+import org.dom4j.DocumentException;
 import org.springframework.stereotype.Component;
+
 import shitou.wechat.weixin.Constant;
+import shitou.wechat.weixin.MessageType;
 import shitou.wechat.weixin.util.WechatUtils;
 
-import java.io.StringReader;
-import java.sql.Date;
 import java.util.List;
+import java.io.StringReader;
 
 /**
  * Created in Intellij IDEA 13 Ultimate
@@ -21,35 +22,11 @@ import java.util.List;
 @Component
 public class TextMessageModel {
 
-    private String toUserName;
-    private String fromUserName;
-    private String createTime;
     private String content;
     private String messageID;
-
-    public String getToUserName() {
-        return toUserName;
-    }
-
-    public void setToUserName(String toUserName) {
-        this.toUserName = toUserName;
-    }
-
-    public String getFromUserName() {
-        return fromUserName;
-    }
-
-    public void setFromUserName(String fromUserName) {
-        this.fromUserName = fromUserName;
-    }
-
-    public String getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
+    private String createTime;
+    private String toUserName;
+    private String fromUserName;
 
     public String getContent() {
         return content;
@@ -67,16 +44,45 @@ public class TextMessageModel {
         this.messageID = messageID;
     }
 
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getToUserName() {
+        return toUserName;
+    }
+
+    public void setToUserName(String toUserName) {
+        this.toUserName = toUserName;
+    }
+
+    public String getFromUserName() {
+        return fromUserName;
+    }
+
+    public void setFromUserName(String fromUserName) {
+        this.fromUserName = fromUserName;
+    }
+
     public TextMessageModel buildFromXml(String xml) throws DocumentException {
         if (xml.trim().isEmpty() || null == xml) return null;
 
-        SAXReader reader = new SAXReader();
-        Document document = reader.read(new StringReader(xml));
-        Element root = document.getRootElement();
-        List<Element> list = root.elements();
+        List<Element> list = WechatUtils.getRootElements(xml);
 
         TextMessageModel textMessageModel = new TextMessageModel();
         for (Element element : list) {
+            if (Constant.CONTENT.equals(element.getName())) {
+                textMessageModel.setContent(element.getTextTrim());
+            }
+
+            if (Constant.MSG_ID.equals(element.getName())) {
+                textMessageModel.setMessageID(element.getTextTrim());
+            }
+
             if (Constant.TO_USER_NAME.equals(element.getName())) {
                 textMessageModel.setToUserName(element.getTextTrim());
             }
@@ -87,14 +93,6 @@ public class TextMessageModel {
 
             if (Constant.CREATE_TIME.equals(element.getName())) {
                 textMessageModel.setCreateTime(WechatUtils.formatTime(element.getTextTrim()));
-            }
-
-            if (Constant.CONTENT.equals(element.getName())) {
-                textMessageModel.setContent(element.getTextTrim());
-            }
-
-            if (Constant.MSG_ID.equals(element.getName())) {
-                textMessageModel.setMessageID(element.getTextTrim());
             }
         }
         return textMessageModel;

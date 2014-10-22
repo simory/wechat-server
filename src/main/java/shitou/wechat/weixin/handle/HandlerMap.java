@@ -1,10 +1,9 @@
 package shitou.wechat.weixin.handle;
 
-import shitou.wechat.weixin.MessageType;
-import shitou.wechat.weixin.handle.TextMessageHandler;
-
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
+
+import shitou.wechat.weixin.MessageType;
 
 /**
  * Created in Intellij IDEA 13 Ultimate

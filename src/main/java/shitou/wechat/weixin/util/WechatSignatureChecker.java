@@ -1,13 +1,11 @@
 package shitou.wechat.weixin.util;
 
-
-import org.apache.commons.lang.StringUtils;
-import org.springframework.stereotype.Component;
 import shitou.wechat.weixin.Constant;
+import org.apache.commons.lang.StringUtils;
 
+import java.util.Arrays;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 
 /**
  * Created by shitou on 14-9-28.

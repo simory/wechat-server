@@ -1,12 +1,18 @@
 package shitou.wechat.weixin.handle;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+import junit.framework.TestCase;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+/**
+ * Created in Intellij IDEA 13 Ultimate
+ * User: shitou
+ * Date: 2014/10/17
+ * Time: 00:13
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context.xml"})
 public class HandleFactoryTest extends TestCase {

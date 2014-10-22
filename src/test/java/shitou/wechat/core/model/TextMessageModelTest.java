@@ -1,7 +1,6 @@
 package shitou.wechat.core.model;
 
 import junit.framework.TestCase;
-import org.dom4j.DocumentException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +8,15 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import shitou.wechat.weixin.util.WechatUtils;
 
-import java.sql.Date;
-
+/**
+ * Created in Intellij IDEA 13 Ultimate
+ * User: shitou
+ * Date: 2014/10/14
+ * Time: 23:27
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context.xml"})
-public class TextMessageModelTest extends TestCase {
+public class TextMessageModelTest extends TestCase{
 
     @Autowired
     TextMessageModel textMessageModel;
@@ -26,14 +29,15 @@ public class TextMessageModelTest extends TestCase {
         assertNotNull(textMessageModel);
         assertEquals("toUser", textMessageModel.getToUserName());
         assertEquals("fromUser", textMessageModel.getFromUserName());
-        assertEquals(WechatUtils.formatTime("1348831860"), textMessageModel.getCreateTime());
         assertEquals("this is a test", textMessageModel.getContent());
         assertEquals("1234567890123456", textMessageModel.getMessageID());
+        assertEquals(WechatUtils.formatTime("1348831860"), textMessageModel.getCreateTime());
     }
 
     @Test
     public void testBuildFromXmlWithNullMessage() throws Exception{
         String message = "";
+
         textMessageModel = textMessageModel.buildFromXml(message);
 
         assertNull(textMessageModel);
@@ -51,8 +55,8 @@ public class TextMessageModelTest extends TestCase {
         TextMessageModel newModel = new TextMessageModel();
         newModel = newModel.buildFromXml(resultXml);
 
-        assertEquals("me_iefhfe83r4eawfue", newModel.getFromUserName());
-        assertEquals("user_fdkaucskfooshuf", newModel.getToUserName());
         assertEquals("hello", newModel.getContent());
+        assertEquals("user_fdkaucskfooshuf", newModel.getToUserName());
+        assertEquals("me_iefhfe83r4eawfue", newModel.getFromUserName());
     }
 }

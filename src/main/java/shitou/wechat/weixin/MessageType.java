@@ -7,15 +7,15 @@ package shitou.wechat.weixin;
  * Time: 00:14
  */
 public class MessageType {
+    public static final String LINK_MESSAGE = "link";
     public static final String TEXT_MESSAGE = "text";
     public static final String IMAGE_MESSAGE = "image";
     public static final String VOICE_MESSAGE = "voice";
     public static final String VIDEO_MESSAGE = "video";
     public static final String LOCATION_MESSAGE = "location";
-    public static final String LINK_MESSAGE = "link";
 
     public static final String TAG_NAME = "MsgType";
 
-    public static final String UNKONWN_MESSAGE = "unkonwnMessage";
     public static final String NULL_MESSAGE = "nullMessage";
+    public static final String UNKONWN_MESSAGE = "unkonwnMessage";
 }

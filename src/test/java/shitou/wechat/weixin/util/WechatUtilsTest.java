@@ -1,10 +1,17 @@
 package shitou.wechat.weixin.util;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+import org.dom4j.Element;
+import junit.framework.TestCase;
 
-import static org.junit.Assert.assertNotNull;
+import java.util.List;
 
+/**
+ * Created in Intellij IDEA 13 Ultimate
+ * User: shitou
+ * Date: 2014/10/21
+ * Time: 01:25
+ */
 public class WechatUtilsTest extends TestCase {
 
     @Test
@@ -17,7 +24,7 @@ public class WechatUtilsTest extends TestCase {
     }
 
     @Test
-    public void testFormatTimeWithNull(){
+    public void testFormatTimeWithNull() throws Exception {
         String nullTime = null;
         String formatedTime = WechatUtils.formatTime(nullTime);
 
@@ -25,10 +32,19 @@ public class WechatUtilsTest extends TestCase {
     }
 
     @Test
-    public void testFormatTimeWithEmpty(){
+    public void testFormatTimeWithEmpty() throws Exception {
         String nullTime = " ";
         String formatedTime = WechatUtils.formatTime(nullTime);
 
         assertNull(formatedTime);
+    }
+
+    @Test
+    public void testGetRootElements() throws Exception {
+        String xml = "<xml><ToUserName><![CDATA[toUser]]></ToUserName><FromUserName><![CDATA[fromUser]]></FromUserName><CreateTime>1348831860</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[this is a test]]></Content><MsgId>1234567890123456</MsgId></xml>";
+        List<Element> list = WechatUtils.getRootElements(xml);
+
+        assertNotNull(list);
+        assertTrue(list.size() > 0);
     }
 }

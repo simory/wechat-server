@@ -2,6 +2,7 @@ package shitou.wechat.web;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
+
 import shitou.wechat.weixin.handle.HandleFactory;
 import shitou.wechat.weixin.util.WechatSignatureChecker;
 
@@ -9,9 +10,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.BufferedReader;
 import java.security.NoSuchAlgorithmException;
 
 /**
@@ -29,10 +31,10 @@ public class WechatServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String remoteSig = req.getParameter("signature");
-        String timestamp = req.getParameter("timestamp");
         String nonce = req.getParameter("nonce");
         String echostr = req.getParameter("echostr");
+        String remoteSig = req.getParameter("signature");
+        String timestamp = req.getParameter("timestamp");
 
         if (StringUtils.isBlank(remoteSig) || StringUtils.isBlank(timestamp) || StringUtils.isBlank(nonce)) return;
 

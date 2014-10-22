@@ -1,14 +1,15 @@
 package shitou.wechat.weixin.util;
 
-import junit.framework.TestCase;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import junit.framework.TestCase;
 import shitou.wechat.weixin.MessageType;
 
-
+/**
+ * Created in Intellij IDEA 13 Ultimate
+ * User: shitou
+ * Date: 2014/10/17
+ * Time: 00:17
+ */
 public class MessageTypePickerTest extends TestCase {
 
 

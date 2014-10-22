@@ -1,17 +1,19 @@
 package shitou.wechat.core.model;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+import junit.framework.TestCase;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import shitou.wechat.weixin.util.WechatUtils;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-
+/**
+ * Created in Intellij IDEA 13 Ultimate
+ * User: shitou
+ * Date: 2014/10/22
+ * Time: 23:12
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context.xml"})
 public class SubscribeEventModelTest extends TestCase {

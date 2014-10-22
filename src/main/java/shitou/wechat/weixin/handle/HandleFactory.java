@@ -4,7 +4,6 @@ package shitou.wechat.weixin.handle;
 import org.dom4j.DocumentException;
 import org.springframework.stereotype.Component;
 import shitou.wechat.weixin.Constant;
-import shitou.wechat.weixin.util.HandlerMap;
 import shitou.wechat.weixin.util.MessageTypePicker;
 
 /**

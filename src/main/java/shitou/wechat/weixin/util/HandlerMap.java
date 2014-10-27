@@ -3,8 +3,8 @@ package shitou.wechat.weixin.util;
 import shitou.wechat.weixin.constant.MessageType;
 import shitou.wechat.weixin.handle.TextMessageHandler;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Created in Intellij IDEA 13 Ultimate

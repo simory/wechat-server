@@ -2,8 +2,8 @@ package shitou.wechat.weixin.constant;
 
 import shitou.wechat.weixin.handle.TextMessageHandler;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Created in Intellij IDEA 13 Ultimate

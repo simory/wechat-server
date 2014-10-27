@@ -1,12 +1,12 @@
 package shitou.wechat.core.model;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+import junit.framework.TestCase;
 import org.junit.runner.RunWith;
+import shitou.wechat.weixin.util.WechatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import shitou.wechat.weixin.util.WechatUtils;
 
 /**
  * Created in Intellij IDEA 13 Ultimate

@@ -1,7 +1,7 @@
 package shitou.wechat.weixin.util;
 
-import shitou.wechat.weixin.constant.Constant;
 import org.apache.commons.lang.StringUtils;
+import shitou.wechat.weixin.constant.Constant;
 
 import java.util.Arrays;
 import java.security.MessageDigest;

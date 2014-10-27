@@ -1,7 +1,7 @@
 package shitou.wechat.weixin.util;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+import junit.framework.TestCase;
 
 /**
  * Created by shitou on 14-9-28.

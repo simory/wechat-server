@@ -1,12 +1,12 @@
 package shitou.wechat.web;
 
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import shitou.wechat.weixin.handle.HandleFactory;
 import shitou.wechat.weixin.util.WechatSignatureChecker;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;

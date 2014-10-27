@@ -24,11 +24,9 @@ public class MessageType {
     public static final String NULL_MESSAGE = "nullMessage";
     public static final String UNKNOWN_MESSAGE = "unkonwnMessage";
 
-    public static class HandlerMap {
-        public static final Map<String, Class> map = new HashMap<String, Class>();
+        public static final Map<String, Class> messageHandlerMap = new HashMap<String, Class>();
 
         static {
-            map.put(TEXT_MESSAGE, TextMessageHandler.class);
+            messageHandlerMap.put(TEXT_MESSAGE, TextMessageHandler.class);
         }
-    }
 }

@@ -21,7 +21,7 @@ public class HandleFactory {
         if (xml == null || xml.trim().isEmpty()) return Constant.NULL_STRING;
 
         String messageType = MessageTypePicker.pick(xml);
-        Class<MessageHandler> specificHandler = MessageType.HandlerMap.map.get(messageType);
+        Class<MessageHandler> specificHandler = MessageType.messageHandlerMap.get(messageType);
 
         if (specificHandler == null) return Constant.NULL_STRING;
 

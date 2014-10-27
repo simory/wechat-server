@@ -19,17 +19,11 @@ public class MessageType {
     public static final String VIDEO_MESSAGE = "video";
     public static final String LOCATION_MESSAGE = "location";
 
-    public static final String TAG_NAME = "MsgType";
+    public static final String MSG_TYPE = "MsgType";
 
     public static final String NULL_MESSAGE = "nullMessage";
-    public static final String UNKONWN_MESSAGE = "unkonwnMessage";
+    public static final String UNKNOWN_MESSAGE = "unkonwnMessage";
 
-    /**
-     * Created in Intellij IDEA 13 Ultimate
-     * User: shitou
-     * Date: 2014/10/18
-     * Time: 22:45
-     */
     public static class HandlerMap {
         public static final Map<String, Class> map = new HashMap<String, Class>();
 

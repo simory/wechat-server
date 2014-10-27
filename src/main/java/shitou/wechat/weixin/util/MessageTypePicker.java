@@ -19,10 +19,10 @@ public class MessageTypePicker {
         List<Element> list = WechatUtils.getRootElements(xml);
 
         for (Element element : list) {
-            if (MessageType.TAG_NAME.equals(element.getName())) {
+            if (MessageType.MSG_TYPE.equals(element.getName())) {
                 return element.getTextTrim().isEmpty() ? MessageType.NULL_MESSAGE : element.getTextTrim();
             }
         }
-        return MessageType.UNKONWN_MESSAGE;
+        return MessageType.UNKNOWN_MESSAGE;
     }
 }

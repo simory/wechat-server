@@ -46,6 +46,6 @@ public class MessageTypePickerTest extends TestCase {
         String messageType = MessageTypePicker.pick(invalideMessageXml);
 
         assertNotNull(messageType);
-        assertEquals(MessageType.UNKONWN_MESSAGE, messageType);
+        assertEquals(MessageType.UNKNOWN_MESSAGE, messageType);
     }
 }

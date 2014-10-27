@@ -23,6 +23,6 @@ public class MessageTypePicker {
                 return element.getTextTrim().isEmpty() ? MessageType.NULL_MESSAGE : element.getTextTrim();
             }
         }
-        return MessageType.UNKNOWN_MESSAGE;
+        return MessageType.INVALIDE_MESSAGE;
     }
 }

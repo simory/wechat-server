@@ -22,7 +22,7 @@ public class MessageType {
     public static final String MSG_TYPE = "MsgType";
 
     public static final String NULL_MESSAGE = "nullMessage";
-    public static final String UNKNOWN_MESSAGE = "unkonwnMessage";
+    public static final String INVALIDE_MESSAGE = "unkonwnMessage";
 
         public static final Map<String, Class> messageHandlerMap = new HashMap<String, Class>();
 

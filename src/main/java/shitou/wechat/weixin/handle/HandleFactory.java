@@ -2,10 +2,13 @@ package shitou.wechat.weixin.handle;
 
 
 import org.dom4j.DocumentException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import shitou.wechat.weixin.constant.Constant;
+import shitou.wechat.weixin.constant.EventType;
 import shitou.wechat.weixin.constant.MessageType;
+import shitou.wechat.weixin.util.EventTypePicker;
 import shitou.wechat.weixin.util.MessageTypePicker;
 
 /**
@@ -17,8 +20,15 @@ import shitou.wechat.weixin.util.MessageTypePicker;
 @Component
 public class HandleFactory {
 
-    public String handle(String xml) throws DocumentException, IllegalAccessException, InstantiationException {
+    @Autowired
+    EventHandleFactory eventHandleFactory;
+
+    public String handle(String xml) throws Exception {
         if (xml == null || xml.trim().isEmpty()) return Constant.NULL_STRING;
+
+        if (xml.contains(EventType.EVENT_SIGN)) {
+            return eventHandleFactory.hand(xml);
+        }
 
         String messageType = MessageTypePicker.pick(xml);
         Class<MessageHandler> specificHandler = MessageType.messageHandlerMap.get(messageType);

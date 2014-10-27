@@ -14,7 +14,7 @@ public class MessageTypePickerTest extends TestCase {
 
 
     @Test
-    public void testPick() throws Exception {
+    public void testPickTextMessageType() throws Exception {
         String textMessageXml = "<xml><ToUserName><![CDATA[toUser]]></ToUserName><FromUserName><![CDATA[fromUser]]></FromUserName><CreateTime>1348831860</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[this is a test]]></Content><MsgId>1234567890123456</MsgId></xml>";
         String messageType = MessageTypePicker.pick(textMessageXml);
 
@@ -46,6 +46,6 @@ public class MessageTypePickerTest extends TestCase {
         String messageType = MessageTypePicker.pick(invalideMessageXml);
 
         assertNotNull(messageType);
-        assertEquals(MessageType.UNKNOWN_MESSAGE, messageType);
+        assertEquals(MessageType.INVALIDE_MESSAGE, messageType);
     }
 }

@@ -72,7 +72,9 @@ public class WechatServlet extends HttpServlet {
             }
 
         try {
+            xml = new String(xml.getBytes("ISO8859-1"), "UTF-8");
             resp.setContentType("text/xml");
+            resp.setCharacterEncoding("UTF-8");
             PrintWriter out = resp.getWriter();
             String messageReturn = handleFactory.handle(xml);
             out.write(messageReturn);

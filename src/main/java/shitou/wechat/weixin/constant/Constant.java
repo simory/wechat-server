@@ -1,4 +1,4 @@
-package shitou.wechat.weixin;
+package shitou.wechat.weixin.constant;
 
 /**
  * Created by shitou on 14-9-28.

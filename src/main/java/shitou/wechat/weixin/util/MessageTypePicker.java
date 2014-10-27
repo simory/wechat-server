@@ -2,7 +2,7 @@ package shitou.wechat.weixin.util;
 
 import org.dom4j.Element;
 import org.dom4j.DocumentException;
-import shitou.wechat.weixin.MessageType;
+import shitou.wechat.weixin.constant.MessageType;
 
 import java.util.List;
 

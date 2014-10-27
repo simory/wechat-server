@@ -1,17 +1,13 @@
 package shitou.wechat.core.model;
 
 import org.dom4j.Element;
-import org.dom4j.Document;
-import org.dom4j.io.SAXReader;
 import org.dom4j.DocumentException;
 import org.springframework.stereotype.Component;
 
-import shitou.wechat.weixin.Constant;
-import shitou.wechat.weixin.MessageType;
+import shitou.wechat.weixin.constant.Constant;
 import shitou.wechat.weixin.util.WechatUtils;
 
 import java.util.List;
-import java.io.StringReader;
 
 /**
  * Created in Intellij IDEA 13 Ultimate

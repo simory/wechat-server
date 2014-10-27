@@ -1,7 +1,7 @@
 package shitou.wechat.weixin.handle;
 
 import org.dom4j.DocumentException;
-import shitou.wechat.weixin.Constant;
+import shitou.wechat.weixin.constant.Constant;
 import org.springframework.stereotype.Component;
 import shitou.wechat.core.model.TextMessageModel;
 

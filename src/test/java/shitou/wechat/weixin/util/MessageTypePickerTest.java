@@ -2,7 +2,7 @@ package shitou.wechat.weixin.util;
 
 import org.junit.Test;
 import junit.framework.TestCase;
-import shitou.wechat.weixin.MessageType;
+import shitou.wechat.weixin.constant.MessageType;
 
 /**
  * Created in Intellij IDEA 13 Ultimate

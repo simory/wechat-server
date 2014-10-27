@@ -4,7 +4,8 @@ package shitou.wechat.weixin.handle;
 import org.dom4j.DocumentException;
 import org.springframework.stereotype.Component;
 
-import shitou.wechat.weixin.Constant;
+import shitou.wechat.weixin.constant.Constant;
+import shitou.wechat.weixin.constant.MessageType;
 import shitou.wechat.weixin.util.MessageTypePicker;
 
 /**
@@ -20,7 +21,7 @@ public class HandleFactory {
         if (xml == null || xml.trim().isEmpty()) return Constant.NULL_STRING;
 
         String messageType = MessageTypePicker.pick(xml);
-        Class<MessageHandler> specificHandler = HandlerMap.map.get(messageType);
+        Class<MessageHandler> specificHandler = MessageType.HandlerMap.map.get(messageType);
 
         if (specificHandler == null) return Constant.NULL_STRING;
 

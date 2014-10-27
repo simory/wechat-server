@@ -1,6 +1,6 @@
 package shitou.wechat.weixin.util;
 
-import shitou.wechat.weixin.Constant;
+import shitou.wechat.weixin.constant.Constant;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.Arrays;

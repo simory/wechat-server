@@ -27,8 +27,9 @@ public class SubscribeEventHandler implements EventHandler {
 
         eventModel = eventModel.buildFromXml(xml);
 
-        messageModel.setToUserName(eventModel.getFromUserName());
-        messageModel.setFromUserName(eventModel.getToUserName());
-        return messageModel.toResponsesXml("欢迎关注本公众帐号,本帐号后台服务器基于Java语言编写，运行于阿里云服务器！");
+        messageModel.setToUserName(eventModel.getToUserName());
+        messageModel.setFromUserName(eventModel.getFromUserName());
+        String returnM = messageModel.toResponsesXml("欢迎关注本公众帐号,本帐号后台服务器基于Java语言编写，运行于阿里云服务器！");
+        return returnM;
     }
 }

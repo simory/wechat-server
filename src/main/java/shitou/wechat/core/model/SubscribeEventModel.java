@@ -20,7 +20,7 @@ public class SubscribeEventModel extends EventModel {
     public SubscribeEventModel buildFromXml(String xml) throws DocumentException {
         if (null == xml || xml.trim().isEmpty()) return null;
 
-        List<Element> list = WechatUtils.getRootElements(xml);
+        List<Element> list = WechatUtils.getXmlRootElements(xml);
 
         SubscribeEventModel subscribeModel = new SubscribeEventModel();
         for (Element element : list) {

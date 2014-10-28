@@ -32,7 +32,7 @@ public class TextMessageHandlerTest extends TestCase {
     }
 
     @Test
-    public void  testHandleWithEmptyXml() throws Exception{
+    public void testHandleWithEmptyXml() throws Exception {
         String xml = "";
         String result = hanlder.handle(xml);
 

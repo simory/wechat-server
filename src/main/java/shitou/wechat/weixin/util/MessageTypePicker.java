@@ -16,7 +16,7 @@ public class MessageTypePicker {
     public static String pick(String xml) throws DocumentException {
         if (null == xml || xml.trim().isEmpty()) return MessageType.NULL_MESSAGE;
 
-        List<Element> list = WechatUtils.getRootElements(xml);
+        List<Element> list = WechatUtils.getXmlRootElements(xml);
 
         for (Element element : list) {
             if (MessageType.MSG_TYPE.equals(element.getName())) {

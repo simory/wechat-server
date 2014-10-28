@@ -67,7 +67,7 @@ public class TextMessageModel {
     public TextMessageModel buildFromXml(String xml) throws DocumentException {
         if (xml.trim().isEmpty() || null == xml) return null;
 
-        List<Element> list = WechatUtils.getRootElements(xml);
+        List<Element> list = WechatUtils.getXmlRootElements(xml);
 
         TextMessageModel textMessageModel = new TextMessageModel();
         for (Element element : list) {
@@ -92,18 +92,5 @@ public class TextMessageModel {
             }
         }
         return textMessageModel;
-    }
-
-    public String toResponsesXml(String responsesContent) {
-        StringBuffer sb = new StringBuffer();
-        sb.append("<xml>\r\n");
-        sb.append("<ToUserName><![CDATA[" + fromUserName + "]]></ToUserName>\r\n");
-        sb.append("<FromUserName><![CDATA[" + toUserName + "]]></FromUserName>\r\n");
-        sb.append("<CreateTime>" + System.currentTimeMillis() + "</CreateTime>\r\n");
-        sb.append("<MsgType><![CDATA[text]]></MsgType>\r\n");
-        sb.append("<Content><![CDATA[" + responsesContent + "]]></Content>\r\n");
-        sb.append("</xml>");
-
-        return sb.toString();
     }
 }

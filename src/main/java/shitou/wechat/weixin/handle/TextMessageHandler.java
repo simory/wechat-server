@@ -4,6 +4,7 @@ import org.dom4j.DocumentException;
 import shitou.wechat.weixin.constant.Constant;
 import org.springframework.stereotype.Component;
 import shitou.wechat.core.model.TextMessageModel;
+import shitou.wechat.weixin.util.WechatUtils;
 
 /**
  * Created in Intellij IDEA 13 Ultimate
@@ -21,15 +22,18 @@ public class TextMessageHandler implements MessageHandler {
         TextMessageModel textMessageModel = new TextMessageModel();
         textMessageModel = textMessageModel.buildFromXml(xml);
 
+        String user = textMessageModel.getFromUserName();
+        String me = textMessageModel.getToUserName();
+
         StringBuffer sb = new StringBuffer();
         sb.append("Message Info:\n");
-        sb.append("FromUser: [" + textMessageModel.getFromUserName() + "]\n");
-        sb.append("ToUser: [" + textMessageModel.getToUserName() + "]\n");
+        sb.append("FromUser: [" + user + "]\n");
+        sb.append("ToUser: [" + me + "]\n");
         sb.append("CreateTime: [" + textMessageModel.getCreateTime() + "]\n");
         sb.append("MsgType: [" + "text]\n");
         sb.append("Content: [" + textMessageModel.getContent() + "]\n");
         sb.append("MsgId: [" + textMessageModel.getMessageID() + "]\n");
 
-        return textMessageModel.toResponsesXml(sb.toString());
+        return WechatUtils.buildTextMessage(user, me, sb.toString());
     }
 }

@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context.xml"})
-public class TextMessageModelTest extends TestCase{
+public class TextMessageModelTest extends TestCase {
 
     @Autowired
     TextMessageModel textMessageModel;
@@ -35,28 +35,11 @@ public class TextMessageModelTest extends TestCase{
     }
 
     @Test
-    public void testBuildFromXmlWithNullMessage() throws Exception{
+    public void testBuildFromXmlWithNullMessage() throws Exception {
         String message = "";
 
         textMessageModel = textMessageModel.buildFromXml(message);
 
         assertNull(textMessageModel);
-    }
-
-    @Test
-    public void testToResponsesXml() throws Exception {
-        textMessageModel.setFromUserName("user_fdkaucskfooshuf");
-        textMessageModel.setToUserName("me_iefhfe83r4eawfue");
-
-        String resultXml = textMessageModel.toResponsesXml("hello");
-
-        assertNotNull(resultXml);
-
-        TextMessageModel newModel = new TextMessageModel();
-        newModel = newModel.buildFromXml(resultXml);
-
-        assertEquals("hello", newModel.getContent());
-        assertEquals("user_fdkaucskfooshuf", newModel.getToUserName());
-        assertEquals("me_iefhfe83r4eawfue", newModel.getFromUserName());
     }
 }

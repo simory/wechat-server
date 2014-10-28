@@ -1,10 +1,9 @@
 package shitou.wechat.weixin.handle;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import shitou.wechat.weixin.util.WechatUtils;
+import shitou.wechat.weixin.constant.Constant;
 import org.springframework.stereotype.Component;
 import shitou.wechat.core.model.SubscribeEventModel;
-import shitou.wechat.core.model.TextMessageModel;
-import shitou.wechat.weixin.constant.Constant;
 
 /**
  * Created in Intellij IDEA 13 Ultimate
@@ -16,20 +15,17 @@ import shitou.wechat.weixin.constant.Constant;
 @Component
 public class SubscribeEventHandler implements EventHandler {
 
-
-
     @Override
     public String handle(String xml) throws Exception {
         if (null == xml || xml.trim().isEmpty()) return Constant.NULL_STRING;
 
         SubscribeEventModel eventModel = new SubscribeEventModel();
-        TextMessageModel messageModel = new TextMessageModel();
 
         eventModel = eventModel.buildFromXml(xml);
 
-        messageModel.setToUserName(eventModel.getToUserName());
-        messageModel.setFromUserName(eventModel.getFromUserName());
-        String returnM = messageModel.toResponsesXml("欢迎关注本公众帐号,本帐号后台服务器基于Java语言编写，运行于阿里云服务器！");
-        return returnM;
+        String me = eventModel.getToUserName();
+        String user = eventModel.getFromUserName();
+        String respMessage = WechatUtils.buildTextMessage(user, me, Constant.SUBSCRIBE_EVENT_WELCOME_MESSAGE);
+        return respMessage;
     }
 }

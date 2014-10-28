@@ -26,13 +26,9 @@ public class TextMessageHandler implements MessageHandler {
         String me = textMessageModel.getToUserName();
 
         StringBuffer sb = new StringBuffer();
-        sb.append("Message Info:\n");
-        sb.append("FromUser: [" + user + "]\n");
-        sb.append("ToUser: [" + me + "]\n");
-        sb.append("CreateTime: [" + textMessageModel.getCreateTime() + "]\n");
-        sb.append("MsgType: [" + "text]\n");
-        sb.append("Content: [" + textMessageModel.getContent() + "]\n");
-        sb.append("MsgId: [" + textMessageModel.getMessageID() + "]\n");
+        sb.append("小黑收到你的消息了\n");
+        sb.append("你是在 " + textMessageModel.getCreateTime() + " 发给我的\n");
+        sb.append("你对我说:" + textMessageModel.getContent() + "\n");
 
         return WechatUtils.buildTextMessage(user, me, sb.toString());
     }

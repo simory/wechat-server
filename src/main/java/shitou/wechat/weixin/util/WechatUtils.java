@@ -22,10 +22,10 @@ public class WechatUtils {
     public static String formatTime(String timeSeconds) {
         if (null == timeSeconds || timeSeconds.trim().isEmpty()) return null;
 
-        DateFormat formater = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         long timeMillis = Long.parseLong(timeSeconds) * 1000L;
 
-        return formater.format(timeMillis);
+        return formatter.format(timeMillis);
     }
 
     public static List<Element> getXmlRootElements(String xml) throws DocumentException {
@@ -37,14 +37,14 @@ public class WechatUtils {
         return root.elements();
     }
 
-    public static String buildTextMessage(String to, String from, String content) {
+    public static String buildTextMessage(String user, String me, String content) {
         StringBuffer sb = new StringBuffer();
-        sb.append("<xml>\r\n");
-        sb.append("<ToUserName><![CDATA[" + to + "]]></ToUserName>\r\n");
-        sb.append("<FromUserName><![CDATA[" + from + "]]></FromUserName>\r\n");
-        sb.append("<CreateTime>" + System.currentTimeMillis() + "</CreateTime>\r\n");
-        sb.append("<MsgType><![CDATA[text]]></MsgType>\r\n");
-        sb.append("<Content><![CDATA[" + content + "]]></Content>\r\n");
+        sb.append("<xml>\n");
+        sb.append("<ToUserName><![CDATA[" + user + "]]></ToUserName>\n");
+        sb.append("<FromUserName><![CDATA[" + me + "]]></FromUserName>\n");
+        sb.append("<CreateTime>" + System.currentTimeMillis() + "</CreateTime>\n");
+        sb.append("<MsgType><![CDATA[text]]></MsgType>\n");
+        sb.append("<Content><![CDATA[" + content + "]]></Content>\n");
         sb.append("</xml>");
 
         return sb.toString();

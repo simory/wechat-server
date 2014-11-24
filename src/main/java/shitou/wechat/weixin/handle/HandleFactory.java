@@ -1,14 +1,12 @@
 package shitou.wechat.weixin.handle;
 
 
-import org.dom4j.DocumentException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import shitou.wechat.weixin.constant.Constant;
 import shitou.wechat.weixin.constant.EventType;
 import shitou.wechat.weixin.constant.MessageType;
-import shitou.wechat.weixin.util.EventTypePicker;
 import shitou.wechat.weixin.util.MessageTypePicker;
 
 /**

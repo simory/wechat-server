@@ -50,7 +50,7 @@ public class WechatUtilsTest extends TestCase {
     }
 
     @Test
-    public void testToResponsesXml() throws Exception {
+    public void testBuildTextMessage() throws Exception {
         String resultXml = WechatUtils.buildTextMessage("user_fdkaucskfooshuf", "me_iefhfe83r4eawfue", "hello");
 
         assertNotNull(resultXml);
@@ -62,6 +62,5 @@ public class WechatUtilsTest extends TestCase {
         assertEquals("hello", newModel.getContent());
         assertEquals("user_fdkaucskfooshuf", newModel.getToUserName());
         assertEquals("me_iefhfe83r4eawfue", newModel.getFromUserName());
-
     }
 }

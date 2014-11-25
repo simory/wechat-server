@@ -100,4 +100,8 @@ public class WechatUtils {
         }
         return null;
     }
+
+    public static boolean ifTextMsgContentIllegal(String content) {
+        return content.contains("<") || content.contains(">") || content.contains("[") || content.contains("]") || content.contains("/");
+    }
 }

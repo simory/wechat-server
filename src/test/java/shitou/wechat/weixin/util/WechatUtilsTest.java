@@ -91,4 +91,13 @@ public class WechatUtilsTest extends TestCase {
         assertEquals("<Content><![CDATA[this is a illegal text message xml]]></Content>", splitedMsg.get(1));
         assertEquals("]]></Content><MsgId>1234567890123456</MsgId></xml>", splitedMsg.get(2));
     }
+
+    @Test
+    public void testIfTextMsgContentIllegal() throws Exception {
+        String content = "<Content><![CDATA[this is a illegal text message xml]]></Content>";
+
+        boolean ifIllegal = WechatUtils.ifTextMsgContentIllegal(content);
+
+        assertTrue(ifIllegal);
+    }
 }

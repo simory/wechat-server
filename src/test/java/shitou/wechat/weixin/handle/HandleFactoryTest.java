@@ -37,4 +37,20 @@ public class HandleFactoryTest extends TestCase {
         assertNotNull(handleResult);
         assertTrue(handleResult.trim().length() == 0);
     }
+
+    @Test
+    public void testHandleWithIllegalXml() throws Exception {
+        String illegalXml = "<xml>" +
+                "<ToUserName><![CDATA[toUser]]></ToUserName>" +
+                "<FromUserName><![CDATA[fromUser]]></FromUserName>" +
+                "<CreateTime>1348831860</CreateTime>" +
+                "<MsgType><![CDATA[text]]></MsgType>" +
+                "<Content><![CDATA[<Content><![CDATA[this is a illegal text message xml]]></Content>]]></Content>" +
+                "<MsgId>1234567890123456</MsgId>" +
+                "</xml>";
+
+        String resultXml = handler.handle(illegalXml);
+        assertNotNull(resultXml);
+        assertTrue(resultXml.length() > 0);
+    }
 }

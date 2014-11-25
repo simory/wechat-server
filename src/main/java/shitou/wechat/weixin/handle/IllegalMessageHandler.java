@@ -1,5 +1,10 @@
 package shitou.wechat.weixin.handle;
 
+import org.dom4j.DocumentException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import shitou.wechat.core.model.TextMessageModel;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -43,9 +48,30 @@ import java.util.regex.Pattern;
      * This method will split the xml to 3 parts, message content is the second part (i.e. list.get(1);)
      */
 
+@Component
 public class IllegalMessageHandler {
 
-    public static List<String> splitTextMsgTo3Parts(String xml) {
+    @Autowired
+    TextMessageModel textMessageModel;
+
+    @Autowired
+    TextMessageHandler textMessageHandler;
+
+    public String handle(List<String> list) throws DocumentException {
+        if (list.size() == 0) return null;
+
+        list.set(1, replaceIllegalChars(list.get(1)) + "\r\n\r\n 你太调皮了！ ；-D");
+
+        String xml = "";
+        for (int i = 0; i < list.size(); i++) {
+            xml += list.get(i);
+        }
+
+        textMessageModel = textMessageModel.buildFromXml(xml);
+        return textMessageHandler.handle(xml);
+    }
+
+    public List<String> splitTextMsgTo3Parts(String xml) {
         if (xml.isEmpty() || xml == null) return null;
 
         String regex = "^(<xml><ToUserName><!\\[CDATA\\[\\w+?\\]\\]><\\/ToUserName><FromUserName><\\!\\[CDATA\\[\\w+?\\]\\]\\><\\/FromUserName><CreateTime>\\d+?<\\/CreateTime><MsgType><\\!\\[CDATA\\[text\\]\\]><\\/MsgType><Content><\\!\\[CDATA\\[)(.*?)(\\]\\]><\\/Content><MsgId>\\d+?<\\/MsgId><\\/xml>)$";
@@ -62,11 +88,11 @@ public class IllegalMessageHandler {
         return null;
     }
 
-    public static boolean ifTextMsgContentIllegal(String content) {
+    public boolean ifTextMsgContentIllegal(String content) {
         return content.contains("<") || content.contains(">") || content.contains("[") || content.contains("]") || content.contains("/");
     }
 
-    public static String replaceIllegalChars(String illegalString) {
+    public String replaceIllegalChars(String illegalString) {
         if (illegalString.isEmpty() || null == illegalString) return null;
 
         illegalString = illegalString.replaceAll("\\[", "\\\\[");

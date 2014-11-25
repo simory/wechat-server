@@ -42,4 +42,14 @@ public class IllegalMessageHandlerTest extends TestCase {
 
         assertTrue(ifIllegal);
     }
+
+    @Test
+    public void testReplaceIllegalChars() throws Exception{
+        String expected = "\\<Content\\>\\<\\!\\[CDATA\\[this is a illegal text message xml\\]\\]\\>\\<\\/Content\\>";
+
+        String processed = IllegalMessageHandler.replaceIllegalChars("<Content><![CDATA[this is a illegal text message xml]]></Content>");
+
+        assertNotNull(processed);
+        assertEquals(expected,processed);
+    }
 }

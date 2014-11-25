@@ -65,4 +65,17 @@ public class IllegalMessageHandler {
     public static boolean ifTextMsgContentIllegal(String content) {
         return content.contains("<") || content.contains(">") || content.contains("[") || content.contains("]") || content.contains("/");
     }
+
+    public static String replaceIllegalChars(String illegalString) {
+        if (illegalString.isEmpty() || null == illegalString) return null;
+
+        illegalString = illegalString.replaceAll("\\[", "\\\\[");
+        illegalString = illegalString.replaceAll("]", "\\\\]");
+        illegalString = illegalString.replaceAll("<", "\\\\<");
+        illegalString = illegalString.replaceAll(">", "\\\\>");
+        illegalString = illegalString.replaceAll("!", "\\\\!");
+        illegalString = illegalString.replaceAll("/", "\\\\/");
+
+        return illegalString;
+    }
 }

@@ -13,6 +13,6 @@ public class Constant {
     public static final String CREATE_TIME = "CreateTime";
     public static final String TO_USER_NAME = "ToUserName";
     public static final String FROM_USER_NAME = "FromUserName";
-    public static final String SUBSCRIBE_EVENT_WELCOME_MESSAGE = "欢迎关注石小黑,本帐号后台服务器基于Java语言编写,运行于Jetty+Nginx,托管于阿里云服务器！";
     public static final String TEXT_MSG_SIGN = "<MsgType><![CDATA[text]]></MsgType>";
+    public static final String SUBSCRIBE_EVENT_WELCOME_MESSAGE = "欢迎关注石小黑,本帐号后台服务器基于Java语言编写,运行于Jetty+Nginx,托管于阿里云服务器！";
 }

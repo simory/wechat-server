@@ -66,7 +66,7 @@ public class WechatServlet extends HttpServlet {
 
             BufferedReader reader = req.getReader();
             String xml = "";
-            String s = null;
+            String s;
             while ((s = reader.readLine()) != null){
                 xml += s;
             }

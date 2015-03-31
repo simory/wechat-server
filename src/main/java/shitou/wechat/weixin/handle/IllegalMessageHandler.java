@@ -60,7 +60,7 @@ public class IllegalMessageHandler {
     public String handle(List<String> list) throws DocumentException {
         if (list.size() == 0) return null;
 
-        list.set(1, replaceIllegalChars(list.get(1)) + "\r\n\r\n 你太调皮了！ ；-D");
+        list.set(1, replaceIllegalChars(list.get(1)) + "\r\n\r\n 你太调皮了!;-D");
 
         String xml = "";
         for (int i = 0; i < list.size(); i++) {
@@ -74,7 +74,10 @@ public class IllegalMessageHandler {
     public List<String> splitTextMsgTo3Parts(String xml) {
         if (xml.isEmpty() || xml == null) return null;
 
-        String regex = "^(<xml><ToUserName><!\\[CDATA\\[\\w+?\\]\\]><\\/ToUserName><FromUserName><\\!\\[CDATA\\[\\w+?\\]\\]\\><\\/FromUserName><CreateTime>\\d+?<\\/CreateTime><MsgType><\\!\\[CDATA\\[text\\]\\]><\\/MsgType><Content><\\!\\[CDATA\\[)(.*?)(\\]\\]><\\/Content><MsgId>\\d+?<\\/MsgId><\\/xml>)$";
+        String regex = "^(<xml><ToUserName><!\\[CDATA\\[\\w+?\\]\\]><\\/ToUserName><FromUserName><\\!\\" +
+                "[CDATA\\[\\w+?\\]\\]\\><\\/FromUserName><CreateTime>\\d+?<\\/CreateTime><MsgType><\\!\\" +
+                "[CDATA\\[text\\]\\]><\\/MsgType><Content><\\!\\[CDATA\\[)(.*?)(\\]\\]><\\/Content><MsgId>" +
+                "\\d+?<\\/MsgId><\\/xml>)$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(xml);
 

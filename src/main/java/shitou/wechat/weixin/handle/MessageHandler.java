@@ -12,5 +12,5 @@ import org.springframework.stereotype.Component;
 @Component
 public interface MessageHandler {
 
-    public String handle(String xml) throws DocumentException;
+    String handle(String xml) throws DocumentException;
 }

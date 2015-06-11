@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <context:annotation-config/>
+    <context:component-scan base-package="shitou.wechat.core.model"/>
+    <context:component-scan base-package="shitou.wechat.core.dao"/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <util:properties id="hibernateProps" location="hibernate.properties"/>
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl"
+                  value="jdbc:mysql://localhost:3306/xiaohei-wechat?useUnicode=yes&amp;characterEncoding=UTF-8"/>
+        <property name="user" value="root"/>
+        <property name="password" value=""/>
+
+        <property name="initialPoolSize" value="1"/>
+        <!-- Minimum connection in connection pool-->
+        <property name="minPoolSize" value="1"/>
+        <!-- Maximum connection in connection pool -->
+        <property name="maxPoolSize" value="10"/>
+        <!-- Maximum idle time, connection will be destroyed after 1800s if does not been used-->
+        <property name="maxIdleTime" value="1800"/>
+        <!-- How many connections will be create when all connections used out-->
+        <property name="acquireIncrement" value="1"/>
+        <!-- Check idle connection in connection pool every 1800s -->
+        <property name="idleConnectionTestPeriod" value="1800"/>
+        <!-- All test will perform this test first-->
+        <property name="preferredTestQuery" value="select 1"/>
+    </bean>
+
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="shitou.wechat.core.model"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="jpaProperties" ref="hibernateProps"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+</beans>

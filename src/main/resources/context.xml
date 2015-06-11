@@ -14,6 +14,8 @@
     <context:annotation-config/>
     <task:annotation-driven proxy-target-class="true" />
 
+    <import resource="context-persistence.xml"></import>
+
     <context:component-scan base-package="shitou.wechat.core"></context:component-scan>
     <context:component-scan base-package="shitou.wechat.web"></context:component-scan>
     <context:component-scan base-package="shitou.wechat.weixin"></context:component-scan>

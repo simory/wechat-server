@@ -49,14 +49,6 @@ public class UserModel implements Serializable{
     @Column(name = "user_head_image_url")
     private String userHeadImageUrl;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getUserName() {
         return userName;
     }

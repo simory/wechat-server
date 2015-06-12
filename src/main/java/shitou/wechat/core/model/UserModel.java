@@ -44,10 +44,10 @@ public class UserModel implements Serializable{
     private String userLanguage;
     @Column(name = "user_province")
     private String userProvince;
-    @Column(name = "user_avaliable")
+    @Column(name = "user_available")
     private boolean userAvailable;
-    @Column(name = "user_head_image_url")
-    private String userHeadImageUrl;
+    @Column(name = "user_head_img_url")
+    private String userHeadImgUrl;
 
     public String getUserName() {
         return userName;
@@ -145,11 +145,11 @@ public class UserModel implements Serializable{
         this.userAvailable = userAvailable;
     }
 
-    public String getUserHeadImageUrl() {
-        return userHeadImageUrl;
+    public String getUserHeadImgUrl() {
+        return userHeadImgUrl;
     }
 
-    public void setUserHeadImageUrl(String userHeadImageUrl) {
-        this.userHeadImageUrl = userHeadImageUrl;
+    public void setUserHeadImgUrl(String userHeadImgUrl) {
+        this.userHeadImgUrl = userHeadImgUrl;
     }
 }

@@ -1,9 +1,10 @@
 package shitou.wechat.core.model;
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
+import javax.persistence.*;
+import java.io.Serializable;
 
 
 /**
@@ -12,84 +13,151 @@ import org.springframework.stereotype.Component;
  * Date: 2014/10/29
  * Time: 00:05
  */
-
+@Entity
 @Component
+@Table(name = "XH_FOLLOWER")
 public class UserModel implements Serializable{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String age;
-    private String city;
-    private String email;
-    private String openId;
-    private String gender;
-    private String mobilePhone;
-    private Timestamp subscribeTime;
+
+    @Column(name = "user_name")
+    private String userName;
+    @Column(name = "user_sex")
+    private int userSex;
+    @Column(name = "public_id")
+    private String publicId;
+    @Column(name = "create_time")
+    private Date createTime;
+    @Column(name = "user_city")
+    private String userCity;
+    @Column(name = "user_remark")
+    private String userRemark;
+    @Column(name = "user_country")
+    private String userCountry;
+    @Column(name = "user_union_id")
+    private String userUnionId;
+    @Column(name = "user_group_id")
+    private String userGroupId;
+    @Column(name = "user_language")
+    private String userLanguage;
+    @Column(name = "user_province")
+    private String userProvince;
+    @Column(name = "user_avaliable")
+    private boolean userAvailable;
+    @Column(name = "user_head_image_url")
+    private String userHeadImageUrl;
 
     public Long getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getUserName() {
+        return userName;
     }
 
-    public String getAge() {
-        return age;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public int getUserSex() {
+        return userSex;
     }
 
-    public String getCity() {
-        return city;
+    public void setUserSex(int userSex) {
+        this.userSex = userSex;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public String getPublicId() {
+        return publicId;
     }
 
-    public String getEmail() {
-        return email;
+    public void setPublicId(String publicId) {
+        this.publicId = publicId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public String getOpenId() {
-        return openId;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    public String getUserCity() {
+        return userCity;
     }
 
-    public String getGender() {
-        return gender;
+    public void setUserCity(String userCity) {
+        this.userCity = userCity;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public String getUserRemark() {
+        return userRemark;
     }
 
-    public String getMobilePhone() {
-        return mobilePhone;
+    public void setUserRemark(String userRemark) {
+        this.userRemark = userRemark;
     }
 
-    public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
+    public String getUserCountry() {
+        return userCountry;
     }
 
-    public Timestamp getSubscribeTime() {
-        return subscribeTime;
+    public void setUserCountry(String userCountry) {
+        this.userCountry = userCountry;
     }
 
-    public void setSubscribeTime(Timestamp subscribeTime) {
-        this.subscribeTime = subscribeTime;
+    public String getUserUnionId() {
+        return userUnionId;
+    }
+
+    public void setUserUnionId(String userUnionId) {
+        this.userUnionId = userUnionId;
+    }
+
+    public String getUserGroupId() {
+        return userGroupId;
+    }
+
+    public void setUserGroupId(String userGroupId) {
+        this.userGroupId = userGroupId;
+    }
+
+    public String getUserLanguage() {
+        return userLanguage;
+    }
+
+    public void setUserLanguage(String userLanguage) {
+        this.userLanguage = userLanguage;
+    }
+
+    public String getUserProvince() {
+        return userProvince;
+    }
+
+    public void setUserProvince(String userProvince) {
+        this.userProvince = userProvince;
+    }
+
+    public boolean isUserAvailable() {
+        return userAvailable;
+    }
+
+    public void setUserAvailable(boolean userAvailable) {
+        this.userAvailable = userAvailable;
+    }
+
+    public String getUserHeadImageUrl() {
+        return userHeadImageUrl;
+    }
+
+    public void setUserHeadImageUrl(String userHeadImageUrl) {
+        this.userHeadImageUrl = userHeadImageUrl;
     }
 }

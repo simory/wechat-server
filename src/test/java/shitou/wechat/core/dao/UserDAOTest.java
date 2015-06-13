@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import shitou.wechat.util.ModelIdGenerator;
 
 import java.util.Date;
 
@@ -41,6 +42,7 @@ public class UserDAOTest extends TestCase {
         user.setUserLanguage("zh_CN");
         user.setUserProvince("SiChuan");
         user.setPublicId("jlfdf99e34h38d");
+        user.setUserId(ModelIdGenerator.generate());
         user.setCreateTime(new Date(System.currentTimeMillis()));
         user.setUserHeadImgUrl("http://wx.qq.com/image/jfhhu423u432ff.jpg");
 

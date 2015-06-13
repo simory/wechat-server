@@ -1,4 +1,4 @@
-package shitou.wechat.weixin.util;
+package shitou.wechat.util;
 
 import org.junit.Test;
 import junit.framework.TestCase;

@@ -84,4 +84,32 @@ public class UserDAOTest extends TestCase {
         assertEquals(user.getCreateTime(),userGet.getCreateTime());
         assertEquals("http://wx.qq.com/image/jfhhu423u432ff.jpg",userGet.getUserHeadImgUrl());
     }
+
+    @Test
+    public void testUpdateUserByUserModel() throws Exception {
+        UserModel user = new UserModel();
+
+        user.setUserId(ModelIdGenerator.generate());
+        user.setUserGroupId("vip");
+        user.setUserAvailable(true);
+        user.setUserCity("Chengdu");
+        user.setUserUnionId("9527");
+        user.setUserCountry("China");
+        user.setUserRemark("shitou");
+        userDAO.createUser(user);
+
+        UserModel newUser = new UserModel();
+        newUser.setUserId(user.getUserId());
+        newUser.setUserGroupId("vip");
+        newUser.setUserAvailable(false);
+        newUser.setUserRemark("Stoney");
+        userDAO.updateUserByUserModel(newUser);
+
+        UserModel updatedUser = userDAO.getUserByUserId(user.getUserId());
+
+        assertNotNull(updatedUser);
+        assertEquals("vip", updatedUser.getUserGroupId());
+        assertEquals("Stoney", updatedUser.getUserRemark());
+        assertEquals(false, updatedUser.isUserAvailable());
+    }
 }

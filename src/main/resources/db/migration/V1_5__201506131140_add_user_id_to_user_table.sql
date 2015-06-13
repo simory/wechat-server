@@ -1,0 +1,2 @@
+ALTER TABLE `xiaohei-wechat`.`XH_FOLLOWER`
+ADD COLUMN `user_id` VARCHAR(45) NULL AFTER `id`;

@@ -22,6 +22,8 @@ public class UserModel implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "user_id")
+    private String userId;
     @Column(name = "user_name")
     private String userName;
     @Column(name = "user_sex")
@@ -55,6 +57,14 @@ public class UserModel implements Serializable{
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public int getUserSex() {

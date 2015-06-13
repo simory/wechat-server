@@ -48,4 +48,40 @@ public class UserDAOTest extends TestCase {
 
         userDAO.createUser(user);
     }
+
+    @Test
+    public void testGetUserByUserId() throws Exception {
+        UserModel user = new UserModel();
+
+        user.setUserGroupId("vip");
+        user.setUserAvailable(true);
+        user.setUserCity("Chengdu");
+        user.setUserUnionId("9527");
+        user.setUserCountry("China");
+        user.setUserRemark("shitou");
+        user.setUserName("月下大石头");
+        user.setUserLanguage("zh_CN");
+        user.setUserProvince("SiChuan");
+        user.setPublicId("jlfdf99e34h38d");
+        user.setUserId(ModelIdGenerator.generate());
+        user.setCreateTime(new Date(System.currentTimeMillis()));
+        user.setUserHeadImgUrl("http://wx.qq.com/image/jfhhu423u432ff.jpg");
+
+        userDAO.createUser(user);
+
+        UserModel userGet = userDAO.getUserByUserId(user.getUserId());
+        assertNotNull(userGet);
+        assertEquals("vip",userGet.getUserGroupId());
+        assertEquals(true,userGet.isUserAvailable());
+        assertEquals("Chengdu",userGet.getUserCity());
+        assertEquals("9527",userGet.getUserUnionId());
+        assertEquals("China",userGet.getUserCountry());
+        assertEquals("shitou",userGet.getUserRemark());
+        assertEquals("月下大石头", userGet.getUserName());
+        assertEquals("zh_CN",userGet.getUserLanguage());
+        assertEquals("SiChuan",userGet.getUserProvince());
+        assertEquals("jlfdf99e34h38d",userGet.getPublicId());
+        assertEquals(user.getCreateTime(),userGet.getCreateTime());
+        assertEquals("http://wx.qq.com/image/jfhhu423u432ff.jpg",userGet.getUserHeadImgUrl());
+    }
 }

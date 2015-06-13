@@ -2,6 +2,7 @@ package shitou.wechat.weixin.util;
 
 import org.junit.Test;
 import junit.framework.TestCase;
+import shitou.wechat.util.MessageTypePicker;
 import shitou.wechat.weixin.constant.MessageType;
 
 /**

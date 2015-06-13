@@ -1,6 +1,6 @@
 package shitou.wechat.weixin.handle;
 
-import shitou.wechat.weixin.util.WechatUtils;
+import shitou.wechat.util.WechatUtils;
 import shitou.wechat.weixin.constant.Constant;
 import org.springframework.stereotype.Component;
 import shitou.wechat.core.model.SubscribeEventModel;

@@ -1,4 +1,4 @@
-package shitou.wechat.weixin.util;
+package shitou.wechat.util;
 
 import org.apache.commons.lang.StringUtils;
 import shitou.wechat.weixin.constant.Constant;

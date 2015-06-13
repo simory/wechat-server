@@ -4,7 +4,7 @@ import org.dom4j.DocumentException;
 import shitou.wechat.weixin.constant.Constant;
 import org.springframework.stereotype.Component;
 import shitou.wechat.core.model.TextMessageModel;
-import shitou.wechat.weixin.util.WechatUtils;
+import shitou.wechat.util.WechatUtils;
 
 /**
  * Created in Intellij IDEA 13 Ultimate

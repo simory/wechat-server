@@ -1,4 +1,4 @@
-package shitou.wechat.weixin.util;
+package shitou.wechat.util;
 
 import org.dom4j.Element;
 import org.dom4j.DocumentException;

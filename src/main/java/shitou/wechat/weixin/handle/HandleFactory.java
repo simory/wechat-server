@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import shitou.wechat.weixin.constant.Constant;
 import shitou.wechat.weixin.constant.EventType;
 import shitou.wechat.weixin.constant.MessageType;
-import shitou.wechat.weixin.util.MessageTypePicker;
+import shitou.wechat.util.MessageTypePicker;
 
 import java.util.List;
 

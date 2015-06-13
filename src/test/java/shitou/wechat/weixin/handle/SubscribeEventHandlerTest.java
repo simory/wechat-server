@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import org.junit.runner.RunWith;
 import shitou.wechat.core.model.TextMessageModel;
 import shitou.wechat.weixin.constant.Constant;
-import shitou.wechat.weixin.util.MessageTypePicker;
+import shitou.wechat.util.MessageTypePicker;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;

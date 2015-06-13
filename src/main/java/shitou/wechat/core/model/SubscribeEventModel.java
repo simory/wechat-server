@@ -4,7 +4,7 @@ import org.dom4j.Element;
 import org.dom4j.DocumentException;
 import org.springframework.stereotype.Component;
 
-import shitou.wechat.weixin.util.WechatUtils;
+import shitou.wechat.util.WechatUtils;
 import shitou.wechat.weixin.constant.Constant;
 
 import java.util.List;

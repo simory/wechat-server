@@ -3,7 +3,7 @@ package shitou.wechat.core.model;
 import org.junit.Test;
 import junit.framework.TestCase;
 import org.junit.runner.RunWith;
-import shitou.wechat.weixin.util.WechatUtils;
+import shitou.wechat.util.WechatUtils;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;

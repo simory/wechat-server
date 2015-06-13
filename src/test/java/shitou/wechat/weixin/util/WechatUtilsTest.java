@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import shitou.wechat.core.model.TextMessageModel;
+import shitou.wechat.util.WechatUtils;
 
 import java.util.List;
 

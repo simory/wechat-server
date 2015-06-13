@@ -2,6 +2,7 @@ package shitou.wechat.weixin.util;
 
 import org.junit.Test;
 import junit.framework.TestCase;
+import shitou.wechat.util.WechatSignatureChecker;
 
 /**
  * Created by shitou on 14-9-28.

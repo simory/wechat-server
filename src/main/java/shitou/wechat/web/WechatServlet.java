@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import shitou.wechat.weixin.handle.HandleFactory;
-import shitou.wechat.weixin.util.WechatSignatureChecker;
+import shitou.wechat.util.WechatSignatureChecker;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import javax.servlet.ServletConfig;

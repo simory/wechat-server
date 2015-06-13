@@ -2,9 +2,9 @@ package shitou.wechat.weixin.util;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import shitou.wechat.util.EventTypePicker;
 import shitou.wechat.weixin.constant.EventType;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 

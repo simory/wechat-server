@@ -3,7 +3,7 @@ package shitou.wechat.weixin.handle;
 import shitou.wechat.weixin.constant.Constant;
 import shitou.wechat.weixin.constant.EventType;
 import org.springframework.stereotype.Component;
-import shitou.wechat.weixin.util.EventTypePicker;
+import shitou.wechat.util.EventTypePicker;
 
 /**
  * Created in Intellij IDEA 13 Ultimate

@@ -86,6 +86,18 @@ public class UserDAOTest extends TestCase {
     }
 
     @Test
+    public void testGetUserByUserIdWithNullId(){
+        UserModel userModel = new UserModel();
+        userModel.setUserId(ModelIdGenerator.generate());
+        userModel.setUserName("shitou");
+
+        userDAO.createUser(userModel);
+
+        UserModel userGet = userDAO.getUserByUserId(null);
+        assertNull(userGet);
+    }
+
+    @Test
     public void testUpdateUserByUserModel() throws Exception {
         UserModel user = new UserModel();
 

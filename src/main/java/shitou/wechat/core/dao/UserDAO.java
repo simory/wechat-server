@@ -48,4 +48,11 @@ public class UserDAO {
         manageUserModel.setUserAvailable(userModel.isUserAvailable());
         manageUserModel.setUserHeadImgUrl(userModel.getUserHeadImgUrl());
     }
+
+    public void deleteUserByUserId(String userId){
+        if (userId == null) return;
+
+        String hql = "delete from UserModel where userId = :userId";
+        entityManager.createQuery(hql).setParameter("userId",userId).executeUpdate();
+    }
 }

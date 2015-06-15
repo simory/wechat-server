@@ -124,4 +124,23 @@ public class UserDAOTest extends TestCase {
         assertEquals("Stoney", updatedUser.getUserRemark());
         assertEquals(false, updatedUser.isUserAvailable());
     }
+
+    @Test
+    public void testUpdateUserByUserModel1() throws Exception {
+        UserModel user = new UserModel();
+
+        user.setUserId(ModelIdGenerator.generate());
+        user.setUserGroupId("vip");
+        user.setUserAvailable(true);
+        user.setUserCity("Chengdu");
+        user.setUserUnionId("9527");
+        user.setUserCountry("China");
+        user.setUserRemark("shitou");
+        userDAO.createUser(user);
+
+        userDAO.deleteUserByUserId(user.getUserId());
+
+        UserModel deleteUser = userDAO.getUserByUserId(user.getUserId());
+        assertNull(deleteUser);
+    }
 }
